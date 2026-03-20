@@ -1,0 +1,47 @@
+body {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: black;
+    text-align: center;
+}
+
+.nav {
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.nav a {
+    color: #00ccff;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+h1, h2 {
+    text-shadow: 2px 2px 4px black;
+}
+
+.img-small {
+    width: 200px;
+}
+
+.arrow {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Baiti</title>
+
+    <script>
+    // 25 Mbps → baiti sekundē
+    // 25 000 000 bitu / 8 = 3 125 000 baiti sekundē
+    const BYTES_PER_SECOND = 25 * 1000 * 1000 / 8;
+
+    function convert(unit) {
+        const secInput = document.getElementById("sec");
+        const resultInput = document.getElementById("result");
+
+        let sec = parseFloat(secInput.value);
+        if (isNaN(sec) || sec < 0) {
+            resultInput.value = "";
+            return;
+        }
+
+        let totalBytes = sec * BYTES_PER_SECOND;
+
+        if (unit === "KiB") {
+            // 1 KiB = 1024 baiti
+            let kib = totalBytes / 1024;
+            resultInput.value = kib.toFixed(4);
+        } else if (unit === "KB") {
+            // 1 KB = 1000 baiti
+            let kb = totalBytes / 1000;
+            resultInput.value = kb.toFixed(4);
+        }
+    }
+
+    function resetForm() {
+        const form = document.getElementById("form");
+        const resultInput = document.getElementById("result");
+        form.reset();
+        resultInput.value = "";
+    }
+    </script>
+
+</head>
+<body>
+
+    <h2>Aprēķināt cik daudz informācijas var lejupielādēt</h2>
+
+    <form id="form">
+        <p>
+            Aprēķināt cik daudz informācijas var lejupielādēt
+            <input type="number" id="sec" onfocus="resetForm()">
+            sekundēs, ja interneta ātrums ir 25 Mbps.
+        </p>
+
+        <p>Atbilde</p>
+        <input type="text" id="result" readonly>
+
+        <p>
+            <label>
+                <input type="radio" name="unit" onclick="convert('KiB')">
+                KiB
+            </label>
+            <label>
+                <input type="radio" name="unit" onclick="convert('KB')">
+                KB
+            </label>
+        </p>
+    </form>
+
+</body>
+</html>
